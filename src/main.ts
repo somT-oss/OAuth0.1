@@ -8,6 +8,8 @@ const PORT = 3000;
 
 // Set Middleware
 app.use(bodyParser.json());
+
+// Logger
 app.use(morgan('combined'));
 app.use(bodyParser.urlencoded({"extended": true}));
 app.use('/oauth', oauthRouter);
