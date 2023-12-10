@@ -2,12 +2,19 @@ import express, {Request, Response} from 'express';
 import * as bodyParser from "body-parser";
 import morgan from "morgan";
 import oauthRouter from "../routes/oauthRoutes";
+import sequelize from './sequelize';
+
 
 const app = express();
 const PORT = 3000;
 
 // Set Middleware
 app.use(bodyParser.json());
+
+// Sync sequelize
+sequelize.sync({ force: true}).then(() => {
+    console.log("Database synchronised");
+});
 
 // Logger
 app.use(morgan('combined'));
