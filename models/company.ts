@@ -1,33 +1,37 @@
 import { DataTypes } from 'sequelize';
 import sequelize from "../src/sequelize";
 
-const Company = sequelize.define("Company", {
-    companyName: {
+const Company = sequelize.define("company", {
+    company_name: {
         type: DataTypes.STRING,
         allowNull: false, 
         unique: true
     }, 
-    companyDescription: {
+    company_description: {
         type: DataTypes.STRING,
         allowNull: false,
     }, 
-    secretId: {
+    secret_id: {
         type: DataTypes.STRING,
         allowNull: false,
     },
-    clientId: {
+    client_id: {
         type: DataTypes.STRING,
         allowNull: false,
     },
-    redirectUrl: {
+    redirect_url: {
         type: DataTypes.STRING,
         allowNull: false
     }, 
-    companyLogo: {
+    company_logo: {
         type: DataTypes.BLOB('long'),
         allowNull: true,
     }
     
-});
+},
+    {
+        'tableName': 'company',
+    }
+);
 
 export default Company;
