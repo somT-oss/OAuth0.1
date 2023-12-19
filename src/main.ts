@@ -3,6 +3,7 @@ import * as bodyParser from "body-parser";
 import morgan from "morgan";
 import oauthRouter from "../routes/oauthRoutes";
 import userRouter from "../routes/user_register";
+import photosRouter from "../routes/create_photos";
 import sequelize from './sequelize';
 
 
@@ -22,6 +23,7 @@ app.use(morgan('combined'));
 app.use(bodyParser.urlencoded({"extended": true}));
 app.use('/oauth', oauthRouter);
 app.use('/user', userRouter);
+app.use('/photos', photosRouter);
 
 
 app.post("/test", (req: Request, res: Response) => {
