@@ -13,7 +13,7 @@ const PORT = 3000;
 app.use(bodyParser.json());
 
 // Sync sequelize
-sequelize.sync({ force: true}).then(() => {
+sequelize.sync().then(() => {
     console.log("Database synchronised");
 });
 
