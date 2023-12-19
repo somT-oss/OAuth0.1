@@ -2,6 +2,7 @@ import express, {Request, Response} from 'express';
 import * as bodyParser from "body-parser";
 import morgan from "morgan";
 import oauthRouter from "../routes/oauthRoutes";
+import userRouter from "../routes/user_register";
 import sequelize from './sequelize';
 
 
@@ -20,6 +21,7 @@ sequelize.sync({ force: true}).then(() => {
 app.use(morgan('combined'));
 app.use(bodyParser.urlencoded({"extended": true}));
 app.use('/oauth', oauthRouter);
+app.use('/user', userRouter);
 
 
 app.post("/test", (req: Request, res: Response) => {

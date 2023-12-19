@@ -34,4 +34,6 @@ const Company = sequelize.define("company", {
     }
 );
 
+
+
 export default Company;
